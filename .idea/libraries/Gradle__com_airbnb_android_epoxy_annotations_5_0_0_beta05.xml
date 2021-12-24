@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="Gradle: com.airbnb.android:epoxy-annotations:5.0.0-beta05">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.airbnb.android/epoxy-annotations/5.0.0-beta05/89be31a0a26d6553734a1a445a916b606f8d7b1e/epoxy-annotations-5.0.0-beta05.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.airbnb.android/epoxy-annotations/5.0.0-beta05/f46be663463e4fee48103bfacdcc7d219512a607/epoxy-annotations-5.0.0-beta05-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.airbnb.android/epoxy-annotations/5.0.0-beta05/41f4573ce1333982f678e9178f2e099f9571844/epoxy-annotations-5.0.0-beta05-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

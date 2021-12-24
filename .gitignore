@@ -1,0 +1,10 @@
+package com.example.senya.ui.fragment
+
+import android.os.Bundle
+import android.util.Log
+import android.view.*
+import androidx.appcompat.widget.SearchView
+import androidx.recyclerview.widget.DividerItemDecoration
+import
+# Project exclude paths
+/.gradle/
