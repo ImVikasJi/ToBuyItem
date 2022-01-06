@@ -21,10 +21,14 @@ class ToBuyViewModel(
     }
 
     fun insertItem(itemEntity: ItemEntity) {
-        toBuyRepository.insertItem(itemEntity)
+        viewModelScope.launch {
+            toBuyRepository.insertItem(itemEntity)
+        }
     }
 
-    fun deleteItem(itemEntity: ItemEntity){
-        toBuyRepository.deleteItem(itemEntity)
+    fun deleteItem(itemEntity: ItemEntity) {
+        viewModelScope.launch {
+            toBuyRepository.deleteItem(itemEntity)
+        }
     }
 }

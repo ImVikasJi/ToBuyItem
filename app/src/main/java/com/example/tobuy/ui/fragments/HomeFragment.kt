@@ -4,9 +4,13 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import com.airbnb.epoxy.EpoxyController
+import com.example.tobuy.R
 import com.example.tobuy.databinding.FragmentHomeBinding
+import com.example.tobuy.model.ItemEntity
+import com.example.tobuy.ui.epoxy.HomeEpoxyController
 
-class HomeFragment : BaseFragment() {
+class HomeFragment : BaseFragment(), ItemEntityInterface {
 
     private var _binding: FragmentHomeBinding? = null
     private val binding get() = _binding!!
@@ -23,13 +27,28 @@ class HomeFragment : BaseFragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        binding.fab.setOnClickListener {
+            navigateViaNavGraph(R.id.action_homeFragment_to_addItemEntityFragment)
+        }
+
+        val controller = HomeEpoxyController(this)
+        binding.epoxyRecyclerView.setController(controller) // to give charges to recyclerview
+
         toBuyViewModel.itemEntityLiveData.observe(viewLifecycleOwner){ itemEntityList ->
-            // todo()
+            controller.itemEntityList = itemEntityList as ArrayList<ItemEntity>
         }
     }
 
     override fun onDestroy() {
         super.onDestroy()
         _binding = null
+    }
+
+    override fun onDeleteItemEntity(itemEntity: ItemEntity) {
+        // todo()
+    }
+
+    override fun onBumpPriority(itemEntity: ItemEntity) {
+        // todo()
     }
 }
