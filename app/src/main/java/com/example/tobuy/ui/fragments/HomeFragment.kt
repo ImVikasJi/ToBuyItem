@@ -1,10 +1,10 @@
 package com.example.tobuy.ui.fragments
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.airbnb.epoxy.EpoxyController
 import com.example.tobuy.R
 import com.example.tobuy.databinding.FragmentHomeBinding
 import com.example.tobuy.model.ItemEntity
@@ -45,7 +45,7 @@ class HomeFragment : BaseFragment(), ItemEntityInterface {
     }
 
     override fun onDeleteItemEntity(itemEntity: ItemEntity) {
-        // todo()
+        toBuyViewModel.deleteItem(itemEntity)
     }
 
     override fun onBumpPriority(itemEntity: ItemEntity) {

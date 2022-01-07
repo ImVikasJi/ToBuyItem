@@ -15,8 +15,9 @@ class ToBuyViewModel(
 
     init {
         viewModelScope.launch {
-            val items = toBuyRepository.getAllItems()
-            itemEntityLiveData.postValue(items)
+            toBuyRepository.getAllItems().collect{ items ->
+                 itemEntityLiveData.postValue(items)
+            }
         }
     }
 

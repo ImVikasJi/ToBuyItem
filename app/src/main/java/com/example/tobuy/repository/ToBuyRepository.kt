@@ -2,6 +2,7 @@ package com.example.tobuy.repository
 
 import com.example.tobuy.db.ItemDatabase
 import com.example.tobuy.model.ItemEntity
+import kotlinx.coroutines.flow.Flow
 
 class ToBuyRepository(private val itemDatabase: ItemDatabase) {
 
@@ -9,12 +10,12 @@ class ToBuyRepository(private val itemDatabase: ItemDatabase) {
         itemDatabase.itemEntityDao().insert(itemEntity)
     }
 
-    suspend fun deleteItem(itemEntity: ItemEntity){
+    suspend fun deleteItem(itemEntity: ItemEntity) {
         itemDatabase.itemEntityDao().delete(itemEntity)
     }
 
-    suspend fun getAllItems(): List<ItemEntity>{
-      return itemDatabase.itemEntityDao().getAllItemEntities()
+    fun getAllItems(): Flow<List<ItemEntity>> {
+        return itemDatabase.itemEntityDao().getAllItemEntities()
     }
 
 }

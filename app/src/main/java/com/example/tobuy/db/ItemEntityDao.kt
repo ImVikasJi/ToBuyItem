@@ -2,12 +2,13 @@ package com.example.tobuy.db
 
 import androidx.room.*
 import com.example.tobuy.model.ItemEntity
+import kotlinx.coroutines.flow.Flow
 
 @Dao
 interface ItemEntityDao {
 
     @Query("Select * from item_entity")
-    suspend fun getAllItemEntities(): List<ItemEntity>
+    fun getAllItemEntities(): Flow<List<ItemEntity>>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insert(itemEntity: ItemEntity)
