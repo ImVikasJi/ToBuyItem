@@ -5,6 +5,7 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import com.airbnb.epoxy.EpoxyTouchHelper
 import com.example.tobuy.R
 import com.example.tobuy.databinding.FragmentHomeBinding
 import com.example.tobuy.model.ItemEntity
@@ -34,9 +35,45 @@ class HomeFragment : BaseFragment(), ItemEntityInterface {
         val controller = HomeEpoxyController(this)
         binding.epoxyRecyclerView.setController(controller) // to give charges to recyclerview
 
-        toBuyViewModel.itemEntityLiveData.observe(viewLifecycleOwner){ itemEntityList ->
+        toBuyViewModel.itemEntityLiveData.observe(viewLifecycleOwner) { itemEntityList ->
             controller.itemEntityList = itemEntityList as ArrayList<ItemEntity>
         }
+
+        //Swipe to delete
+        EpoxyTouchHelper.initSwiping(binding.epoxyRecyclerView)
+            .right()
+            .withTarget(HomeEpoxyController.ItemEntityEpoxyModel::class.java)
+            .andCallbacks(object :
+                EpoxyTouchHelper.SwipeCallbacks<HomeEpoxyController.ItemEntityEpoxyModel>() {
+                override fun onSwipeCompleted(
+                    model: HomeEpoxyController.ItemEntityEpoxyModel?,
+                    itemView: View?,
+                    position: Int,
+                    direction: Int
+                ) {
+                    val itemToDelete = model?.itemEntity ?: return
+                    toBuyViewModel.deleteItem(itemToDelete)
+                }
+            })
+
+        // Drag the item
+//        EpoxyTouchHelper.initDragging(controller)
+//            .withRecyclerView(binding.epoxyRecyclerView)
+//            .forVerticalList()
+//            .withTarget(HomeEpoxyController.ItemEntityEpoxyModel::class.java)
+//            .andCallbacks(object :
+//                EpoxyTouchHelper.DragCallbacks<HomeEpoxyController.ItemEntityEpoxyModel>() {
+//                override fun onModelMoved(
+//                    fromPosition: Int,
+//                    toPosition: Int,
+//                    modelBeingMoved: HomeEpoxyController.ItemEntityEpoxyModel?,
+//                    itemView: View?
+//                ) {
+//                    val remove = modelBeingMoved?.itemEntity ?: return
+//                    // todo() drag and drop thing
+//
+//                }
+//            })
     }
 
     override fun onDestroy() {
