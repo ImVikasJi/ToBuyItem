@@ -44,6 +44,11 @@ class HomeFragment : BaseFragment(), ItemEntityInterface {
         _binding = null
     }
 
+    override fun onResume() {
+        super.onResume()
+        mainActivity.hideKeyboard(requireView())
+    }
+
     override fun onDeleteItemEntity(itemEntity: ItemEntity) {
         toBuyViewModel.deleteItem(itemEntity)
     }

@@ -12,6 +12,7 @@ class ToBuyViewModel(
 ) : ViewModel() {
 
     val itemEntityLiveData = MutableLiveData<List<ItemEntity>>()
+    val transactionCompletedLiveData = MutableLiveData<Boolean>()
 
     init {
         viewModelScope.launch {
@@ -25,6 +26,7 @@ class ToBuyViewModel(
         viewModelScope.launch {
             toBuyRepository.insertItem(itemEntity)
         }
+        transactionCompletedLiveData.postValue(true)
     }
 
     fun deleteItem(itemEntity: ItemEntity) {
