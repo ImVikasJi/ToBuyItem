@@ -57,23 +57,21 @@ class HomeFragment : BaseFragment(), ItemEntityInterface {
             })
 
         // Drag the item
-//        EpoxyTouchHelper.initDragging(controller)
-//            .withRecyclerView(binding.epoxyRecyclerView)
-//            .forVerticalList()
-//            .withTarget(HomeEpoxyController.ItemEntityEpoxyModel::class.java)
-//            .andCallbacks(object :
-//                EpoxyTouchHelper.DragCallbacks<HomeEpoxyController.ItemEntityEpoxyModel>() {
-//                override fun onModelMoved(
-//                    fromPosition: Int,
-//                    toPosition: Int,
-//                    modelBeingMoved: HomeEpoxyController.ItemEntityEpoxyModel?,
-//                    itemView: View?
-//                ) {
-//                    val remove = modelBeingMoved?.itemEntity ?: return
-//                    // todo() drag and drop thing
-//
-//                }
-//            })
+        EpoxyTouchHelper.initDragging(controller)
+            .withRecyclerView(binding.epoxyRecyclerView)
+            .forVerticalList()
+            .withTarget(HomeEpoxyController.ItemEntityEpoxyModel::class.java)
+            .andCallbacks(object :
+                EpoxyTouchHelper.DragCallbacks<HomeEpoxyController.ItemEntityEpoxyModel>() {
+                override fun onModelMoved(
+                    fromPosition: Int,
+                    toPosition: Int,
+                    modelBeingMoved: HomeEpoxyController.ItemEntityEpoxyModel?,
+                    itemView: View?
+                ) {
+                    // todo()
+                }
+            })
     }
 
     override fun onDestroy() {
