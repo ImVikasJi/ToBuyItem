@@ -6,7 +6,9 @@ import androidx.core.view.isGone
 import androidx.core.view.isVisible
 import com.airbnb.epoxy.EpoxyController
 import com.example.tobuy.R
+import com.example.tobuy.addHeaderModel
 import com.example.tobuy.databinding.ModelEmptyStateBinding
+import com.example.tobuy.databinding.ModelHeaderItemBinding
 import com.example.tobuy.databinding.ModelItemEntityBinding
 import com.example.tobuy.model.ItemEntity
 import com.example.tobuy.ui.fragments.ItemEntityInterface
@@ -40,8 +42,22 @@ class HomeEpoxyController(
             return
         }
 
-        itemEntityList.forEach { item ->
+        var currentPriority = -1
+        itemEntityList.sortedByDescending { it.priority }.forEach { item ->
+            if(item.priority != currentPriority){
+                currentPriority = item.priority
+                val text = getHeaderTextForPriority(currentPriority)
+                addHeaderModel(text)
+            }
             ItemEntityEpoxyModel(item, itemEntityInterface).id(item.id).addTo(this)
+        }
+    }
+
+    private fun getHeaderTextForPriority(currentPriority: Int): String {
+        return when(currentPriority){
+            1 -> "Low"
+            2 -> "Medium"
+            else -> "High"
         }
     }
 
@@ -75,8 +91,11 @@ class HomeEpoxyController(
 
             priorityTextView.setBackgroundColor(ContextCompat.getColor(root.context, colorRes))
             root.setStrokeColor(ColorStateList.valueOf(ContextCompat.getColor(root.context, colorRes)))
-        }
 
+            root.setOnClickListener {
+                itemEntityInterface.onItemSelected(itemEntity)
+            }
+        }
     }
 
     class EmptyStateEpoxyModel() :
@@ -85,5 +104,14 @@ class HomeEpoxyController(
             // Nothing to right now
         }
 
+    }
+
+    data class HeaderEpoxyModel(val headerText: String) : ViewBindingKotlinModel<ModelHeaderItemBinding>(R.layout.model_header_item){
+        override fun ModelHeaderItemBinding.bind() {
+            tvHeaderTextView.text = headerText
+        }
+        override fun getSpanSize(totalSpanCount: Int, position: Int, itemCount: Int): Int {
+            return totalSpanCount
+        }
     }
 }

@@ -1,10 +1,8 @@
 package com.example.tobuy.ui.fragments
 
 import android.os.Bundle
-import android.util.Log
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
+import android.view.*
+import androidx.navigation.fragment.navArgs
 import com.airbnb.epoxy.EpoxyTouchHelper
 import com.example.tobuy.R
 import com.example.tobuy.databinding.FragmentHomeBinding
@@ -69,7 +67,6 @@ class HomeFragment : BaseFragment(), ItemEntityInterface {
                     modelBeingMoved: HomeEpoxyController.ItemEntityEpoxyModel?,
                     itemView: View?
                 ) {
-                    // todo()
                 }
             })
     }
@@ -89,6 +86,18 @@ class HomeFragment : BaseFragment(), ItemEntityInterface {
     }
 
     override fun onBumpPriority(itemEntity: ItemEntity) {
-        // todo()
+        val currentPriority = itemEntity.priority
+        var newPriority = currentPriority + 1
+        if (newPriority > 3) newPriority = 1
+
+
+        val updateItemEntity = itemEntity.copy(priority = newPriority)
+        toBuyViewModel.updateItem(updateItemEntity)
+
+    }
+
+    override fun onItemSelected(itemEntity: ItemEntity) {
+        val navDirections = HomeFragmentDirections.actionHomeFragmentToAddItemEntityFragment(itemEntity.id)
+        navigateViaNavGraph(navDirections)
     }
 }

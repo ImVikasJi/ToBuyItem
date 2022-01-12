@@ -3,6 +3,7 @@ package com.example.tobuy.ui.fragments
 import ToBuyViewModelFactory
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.navigation.NavDirections
 import com.example.tobuy.MainActivity
 import com.example.tobuy.db.ItemDatabase
 import com.example.tobuy.repository.ToBuyRepository
@@ -28,6 +29,10 @@ abstract class BaseFragment: Fragment() {
     }
     protected fun navigateViaNavGraph(actionId: Int){
         mainActivity.navController.navigate(actionId)
+    }
+
+    protected fun navigateViaNavGraph(navDirections: NavDirections){
+        mainActivity.navController.navigate(navDirections)
     }
 
     // End region navigation helper methods

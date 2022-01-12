@@ -3,13 +3,20 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Udacity/ToBuy/app/src/main/res/drawable/ic_customization_24.xml" value="0.3828125" />
         <entry key="..\:/Udacity/ToBuy/app/src/main/res/drawable/ic_delete_24.xml" value="0.3769230769230769" />
-        <entry key="..\:/Udacity/ToBuy/app/src/main/res/layout/activity_main.xml" value="0.20520833333333333" />
+        <entry key="..\:/Udacity/ToBuy/app/src/main/res/drawable/ic_home_24.xml" value="0.3828125" />
+        <entry key="..\:/Udacity/ToBuy/app/src/main/res/layout/activity_main.xml" value="0.33" />
         <entry key="..\:/Udacity/ToBuy/app/src/main/res/layout/epoxy_model_loading.xml" value="0.36666666666666664" />
         <entry key="..\:/Udacity/ToBuy/app/src/main/res/layout/fragment_add_item_entity.xml" value="0.33" />
         <entry key="..\:/Udacity/ToBuy/app/src/main/res/layout/fragment_home.xml" value="0.36666666666666664" />
+        <entry key="..\:/Udacity/ToBuy/app/src/main/res/layout/fragment_profile.xml" value="0.36666666666666664" />
+        <entry key="..\:/Udacity/ToBuy/app/src/main/res/layout/model_category.xml" value="0.36666666666666664" />
+        <entry key="..\:/Udacity/ToBuy/app/src/main/res/layout/model_empty_button.xml" value="0.36666666666666664" />
         <entry key="..\:/Udacity/ToBuy/app/src/main/res/layout/model_empty_state.xml" value="0.36666666666666664" />
+        <entry key="..\:/Udacity/ToBuy/app/src/main/res/layout/model_header_item.xml" value="0.36666666666666664" />
         <entry key="..\:/Udacity/ToBuy/app/src/main/res/layout/model_item_entity.xml" value="0.5" />
+        <entry key="..\:/Udacity/ToBuy/app/src/main/res/menu/menu_bottom_app_bar.xml" value="0.36666666666666664" />
       </map>
     </option>
   </component>

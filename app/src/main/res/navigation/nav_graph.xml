@@ -16,10 +16,25 @@
     </fragment>
 
     <fragment
+        android:id="@+id/profileFragment"
+        android:name="com.example.tobuy.ui.profile.ProfileFragment"
+        android:label="Profile"
+        tools:layout="@layout/fragment_profile" />
+
+
+    <fragment
         android:id="@+id/addItemEntityFragment"
         android:name="com.example.tobuy.ui.fragments.AddItemEntityFragment"
         android:label="Add"
-        tools:layout="@layout/fragment_add_item_entity" />
+        tools:layout="@layout/fragment_add_item_entity">
+
+        <argument
+            android:name="selectedItemEntityId"
+            android:defaultValue="@null"
+            app:argType="string"
+            app:nullable="true" />
+
+    </fragment>
 
 
 </navigation>

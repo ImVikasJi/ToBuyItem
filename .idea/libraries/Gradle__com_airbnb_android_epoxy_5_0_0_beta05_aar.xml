@@ -1,12 +1,12 @@
 <component name="libraryTable">
   <library name="Gradle: com.airbnb.android:epoxy:5.0.0-beta05@aar">
     <ANNOTATIONS>
-      <root url="jar://$USER_HOME$/.gradle/caches/transforms-3/dd6076bf7e76f988b0fb8294524e27b2/transformed/jetified-epoxy-5.0.0-beta05/annotations.zip!/" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-3/463e9d8c1f67697b865e39670fbe5dc8/transformed/jetified-epoxy-5.0.0-beta05/annotations.zip!/" />
     </ANNOTATIONS>
     <CLASSES>
-      <root url="jar://$USER_HOME$/.gradle/caches/transforms-3/dd6076bf7e76f988b0fb8294524e27b2/transformed/jetified-epoxy-5.0.0-beta05/jars/classes.jar!/" />
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/dd6076bf7e76f988b0fb8294524e27b2/transformed/jetified-epoxy-5.0.0-beta05/res" />
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/dd6076bf7e76f988b0fb8294524e27b2/transformed/jetified-epoxy-5.0.0-beta05/AndroidManifest.xml" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/463e9d8c1f67697b865e39670fbe5dc8/transformed/jetified-epoxy-5.0.0-beta05/res" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-3/463e9d8c1f67697b865e39670fbe5dc8/transformed/jetified-epoxy-5.0.0-beta05/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/463e9d8c1f67697b865e39670fbe5dc8/transformed/jetified-epoxy-5.0.0-beta05/AndroidManifest.xml" />
     </CLASSES>
     <JAVADOC>
       <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.airbnb.android/epoxy/5.0.0-beta05/9d5f073cd0fe7d0930307f9395d23f9f6bf4f951/epoxy-5.0.0-beta05-javadoc.jar!/" />
