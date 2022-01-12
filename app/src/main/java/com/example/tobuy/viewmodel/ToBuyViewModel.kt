@@ -3,6 +3,7 @@ package com.example.tobuy.viewmodel
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.example.tobuy.Event
 import com.example.tobuy.model.CategoryEntity
 import com.example.tobuy.model.ItemEntity
 import com.example.tobuy.repository.ToBuyRepository
@@ -14,7 +15,7 @@ class ToBuyViewModel(
 
     val itemEntityLiveData = MutableLiveData<List<ItemEntity>>()
     val categoryEntityLiveData = MutableLiveData<List<CategoryEntity>>()
-    val transactionCompletedLiveData = MutableLiveData<Boolean>()
+    val transactionCompletedLiveData = MutableLiveData<Event<Boolean>>()
 
     init {
         viewModelScope.launch {
@@ -35,7 +36,7 @@ class ToBuyViewModel(
         viewModelScope.launch {
             toBuyRepository.insertItem(itemEntity)
         }
-        transactionCompletedLiveData.postValue(true)
+        transactionCompletedLiveData.postValue(Event(true))
     }
 
     fun deleteItem(itemEntity: ItemEntity) {
@@ -47,7 +48,7 @@ class ToBuyViewModel(
     fun updateItem(itemEntity: ItemEntity) {
         viewModelScope.launch {
             toBuyRepository.updateItem(itemEntity)
-            transactionCompletedLiveData.postValue(true)
+            transactionCompletedLiveData.postValue(Event(true))
         }
     }
     // end region ItemEntity
@@ -57,7 +58,7 @@ class ToBuyViewModel(
         viewModelScope.launch {
             toBuyRepository.insertCategory(categoryEntity)
         }
-        transactionCompletedLiveData.postValue(true)
+        transactionCompletedLiveData.postValue(Event(true))
     }
 
     fun deleteCategory(categoryEntity: CategoryEntity) {
@@ -69,7 +70,7 @@ class ToBuyViewModel(
     fun updateCategory(categoryEntity: CategoryEntity) {
         viewModelScope.launch {
             toBuyRepository.updateCategory(categoryEntity)
-            transactionCompletedLiveData.postValue(true)
+            transactionCompletedLiveData.postValue(Event(true))
         }
     }
     // end region CategoryEntity

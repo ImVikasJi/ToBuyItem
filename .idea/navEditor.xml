@@ -8,13 +8,25 @@
             <LayoutPositions>
               <option name="myPositions">
                 <map>
+                  <entry key="addCategoryEntityFragment">
+                    <value>
+                      <LayoutPositions>
+                        <option name="myPosition">
+                          <Point>
+                            <option name="x" value="-4946" />
+                            <option name="y" value="182" />
+                          </Point>
+                        </option>
+                      </LayoutPositions>
+                    </value>
+                  </entry>
                   <entry key="addItemEntityFragment">
                     <value>
                       <LayoutPositions>
                         <option name="myPosition">
                           <Point>
-                            <option name="x" value="-4941" />
-                            <option name="y" value="-135" />
+                            <option name="x" value="-4942" />
+                            <option name="y" value="-114" />
                           </Point>
                         </option>
                       </LayoutPositions>
@@ -46,8 +58,8 @@
                       <LayoutPositions>
                         <option name="myPosition">
                           <Point>
-                            <option name="x" value="-5115" />
-                            <option name="y" value="228" />
+                            <option name="x" value="-5121" />
+                            <option name="y" value="186" />
                           </Point>
                         </option>
                       </LayoutPositions>

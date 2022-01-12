@@ -72,9 +72,8 @@ class AddItemEntityFragment : BaseFragment() {
 
         })
 
-        toBuyViewModel.transactionCompletedLiveData.observe(viewLifecycleOwner) { complete ->
-            if (complete) {
-
+        toBuyViewModel.transactionCompletedLiveData.observe(viewLifecycleOwner) { event ->
+            event.getContent()?.let {
                 if (isInEditMode) {  // this will help avoiding duplicate items
                     navigateUp()
                     return@observe
@@ -107,10 +106,6 @@ class AddItemEntityFragment : BaseFragment() {
         }
     }
 
-    override fun onPause() {
-        super.onPause()
-        toBuyViewModel.transactionCompletedLiveData.postValue(false)
-    }
 
     private fun saveItemEntityToDatabase() {
         val itemTitle = binding.titleEditText.text.toString().trim()
